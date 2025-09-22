@@ -1,0 +1,126 @@
+/* =========== Page & Body =========== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f2d7bd;           /* sandy page bg */
+  color: #222;
+}
+.page {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* =========== Header + Footer (same class) =========== */
+.bar {
+  background: #7f7f7f;           /* gray bar */
+  color: #fff;
+  text-align: center;
+  border: 3px solid #5e5e5e;
+  padding: 16px;
+  margin: 14px 0;
+  border-radius: 4px;
+}
+.bar h1 { margin: 0; font-weight: 800; letter-spacing: .4px; }
+
+/* =========== Blue Nav Strip =========== */
+.nav-strip {
+  background: #0a00ff;           /* royal blue strip */
+  border-left: 3px solid #5e5e5e;
+  border-right: 3px solid #5e5e5e;
+}
+.nav-strip ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px 10px;
+  display: flex;
+  gap: 24px;                      /* no bullets, horizontal */
+}
+.nav-strip a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 4px 6px;
+  transition: background-color .2s ease;
+}
+.nav-strip a:hover { background: rgba(255,255,255,.2); } /* hover state */
+
+/* =========== Main Layout (percent widths) =========== */
+.content {
+  display: grid;
+  grid-template-columns: 68% 32%; /* main / sidebar */
+  gap: 18px;
+  padding-top: 12px;
+}
+
+/* =========== Cards =========== */
+.card {
+  background: #ffffff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 14px;
+  margin: 10px 0;                 /* margin + padding (rubric) */
+}
+.mint { background: #98f9d9; }
+.cyan { background: #96f3ff; border-color: #1aa2b8; }
+
+/* Sidebar Rules + hover (rubric) */
+.rules h3 { margin-top: 0; text-decoration: underline; }
+.rules h4 { margin-bottom: 6px; }
+.rules ul { margin-top: 6px; }
+.rules { transition: background-color .2s ease, border-color .2s ease; }
+.rules:hover { background: #7fefff; border-color: #13879a; }
+
+/* =========== Form =========== */
+.field {
+  display: grid;
+  grid-template-columns: 120px 1fr;  /* label / input */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+label { font-weight: 600; }
+input[type="text"], select {
+  padding: 6px 8px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #fff;
+  transition: width .2s ease, border-color .2s ease;  /* smooth change */
+}
+/* Name grows on focus, returns on blur (rubric) */
+#name:focus {
+  width: 110%;
+  border-color: #2f9a97;
+  outline: none;
+}
+
+/* Submit Button */
+.btn {
+  display: inline-block;
+  margin-left: 120px;              /* align under inputs */
+  padding: 8px 14px;
+  border: 2px solid #2f9a97;
+  background: #2f9a97;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: filter .15s ease, transform .08s ease;
+}
+.btn:hover { filter: brightness(1.05); }
+.btn:active { transform: translateY(1px); }
+
+/* Result text */
+#result { display: block; margin-top: 12px; font-weight: 700; }
+
+/* Footer text size (like screenshot) */
+.footer { font-size: 12px; opacity: .95; }
+
+/* =========== Responsive (stack columns) =========== */
+@media (max-width: 780px) {
+  .content { grid-template-columns: 1fr; }
+  .btn { margin-left: 0; }
+  .field { grid-template-columns: 1fr; }
+}
